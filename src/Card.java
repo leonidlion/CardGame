@@ -1,29 +1,29 @@
 public class Card {
-    private static final String[] VALUES = new String[]{
-            "6","7","8","9","10","V","D","K","T"
-    };
-
-    private String mSweet;
+    private String mSuit;
     private String mValue;
 
-    enum Sweets {
-        S1, S2, S3, S4;
+    enum SUIT {
+        HEART, DIAMOND, CLUB, SPADE
     }
 
-    public Card(Sweets sweet, String value){
-        mSweet = sweet.name();
-        mValue = value;
+    enum VALUE {
+        V6, V7, V8, V9, V10, JACK, QUEEN, KING, ACE
     }
 
-    public String getSweet() {
-        return mSweet;
+    public Card(SUIT suit, VALUE value){
+        mSuit = suit.name();
+        mValue = value.name();
+    }
+
+    public String getSuit() {
+        return mSuit;
     }
 
     public String getValue() {
         return mValue;
     }
 
-    public boolean isEquals(Card card1, Card card2){
-        return card1.getSweet().equals(card2.getSweet());
+    public boolean isEquals(Card card){
+        return mSuit.equals(card.getSuit());
     }
 }

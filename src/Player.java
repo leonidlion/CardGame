@@ -2,16 +2,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+    private String mName;
     private List<Card> mPlayerCards;
 
-    public Player(){
+    public Player(String name){
+        mName = name;
         mPlayerCards = new ArrayList<>();
     }
 
     public Card getCard(){
-        Card card = mPlayerCards.get(mPlayerCards.size());
-        mPlayerCards.remove(card);
-        return card;
+        return mPlayerCards.remove(mPlayerCards.size() - 1);
+    }
+
+    public String getName(){
+        return mName;
     }
 
     public void putCards(List<Card> cards){
@@ -19,6 +23,6 @@ public class Player {
     }
 
     public boolean hasCard(){
-        return mPlayerCards.isEmpty();
+        return !mPlayerCards.isEmpty();
     }
 }
